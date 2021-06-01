@@ -177,6 +177,37 @@ th{
     text-align: left;
 }
 
+/* INDEX */
+.attracties{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+
+  grid-auto-flow: dense;
+}
+
+.attractie{
+  background-color: #F5FCF8;
+  color: #0B351D;
+  border-radius: 25px;
+}
+
+.txt-wrapper{
+  /* m0-auto + width inzetten!!! */
+}
+
+.attractie, .attractie img{
+  max-width: 16rem; /* GROOTTE CARD */ 
+}
+
+.attractie img{
+  border-radius: 25px 25px 0 0;
+}
+
+.thema, .lengte{
+  color: #849D8E;
+}
+
 
 
 

@@ -25,7 +25,31 @@ require_once 'admin/backend/config.php';
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia modi dolore magnam! Iste libero voluptatum autem, sapiente ullam earum nostrum sed magnam vel laboriosam quibusdam, officia, esse vitae dignissimos nulla?
         </aside>
         <main>
+            <!-- hier zou de query kunnen komen -->
+            <?php
+                require_once './admin/backend/conn.php';
+                $query = "SELECT * FROM rides";
+                $statement = $conn->prepare($query);
+                $statement->execute();
+                $rides = $statement->fetchAll(PDO::FETCH_ASSOC);
+            ?>
+            
             <!-- hier komen de attractiekaartjes -->
+            <div class="attracties">
+                <!-- hier komt de foreach -->
+                <?php foreach($rides as $ride): ?>
+                <div class="attractie">
+                    <img src="img/attracties/<?php echo $ride['img_file']; ?>" alt="attractie">
+
+                    <div class="txt-wrapper">
+                        <div class="thema"><?php echo strtoupper($ride['themeland']); ?></div> <!-- https://www.php.net/manual/en/function.strtoupper.php -->
+                        <h2><?php echo $ride['title']; ?></h2>
+                        <p><?php echo $ride['description']; ?></p>
+                        <div class="lengte"><p><b><?php echo $ride['min_length']; ?>cm</b> minimale lengte</p></div>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            </div>
         </main>
     </div>
 
