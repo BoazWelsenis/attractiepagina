@@ -39,7 +39,7 @@ if(!isset($_SESSION['user_id']))
         $ride = $statement->fetch(PDO::FETCH_ASSOC);
         ?>
 
-        <form action="../backend/ridesController.php" method="POST">
+        <form action="../backend/ridesController.php" method="POST" enctype="multipart/form-data"> <!-- enctype zorgt ervoor dat je de foto kunt uploaden - https://www.w3schools.com/tags/att_form_enctype.asp -->
             <input type="hidden" name="action" value="update">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <input type="hidden" name="old_img" value="<?php echo $ride['img_file']; ?>">
@@ -56,6 +56,14 @@ if(!isset($_SESSION['user_id']))
                     <option value="waterland" <?php if($ride['themeland'] == 'waterland') echo 'selected'; ?>>Waterland</option>
                     <option value="adventureland" <?php if($ride['themeland'] == 'adventureland') echo 'selected'; ?>>Adventureland</option>
                 </select>
+            </div>
+            <div class="form-group">
+                <label for="description">Beschrijving:</label>
+                <textarea name="description" id="description" cols="30" rows="10"><?php echo $ride['description']; ?></textarea>
+            </div>
+            <div class="form-group">
+                <label for="min_length">Min. Lengte:</label>
+                <input type="text" name="min_length" id="min_length" value="<?php echo $ride['min_length']; ?>">
             </div>
             <div class="form-group">
                 <label for="img_file">Afbeelding:</label>

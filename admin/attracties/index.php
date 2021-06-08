@@ -32,7 +32,7 @@ if(!isset($_SESSION['user_id']))
 
         <?php
         require_once '../backend/conn.php';
-        $query = "SELECT * FROM rides";
+        $query = "SELECT * FROM rides ORDER BY title";
         $statement = $conn->prepare($query);
         $statement->execute();
         $rides = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -44,13 +44,14 @@ if(!isset($_SESSION['user_id']))
                 <th>Themagebied</th>
                 <th>Min. lengte</th>
                 <th>Fastpass</th>
+                <th>Aanpassen</th>
             </tr>
             <?php foreach($rides as $ride): ?>
                 <tr>
                     <td><?php echo $ride['title']; ?></td>
                     <td><?php echo $ride['themeland']; ?></td>
                     <td><?php echo $ride['min_length']; ?></td>
-                    <td><?php echo $ride['fast_pass']; ?></td>
+                    <td><?php echo $ride['fast_pass'] ? "Ja" : "Nee"; ?></td> <!-- inline if-statment (als dit... anders dat...) -->
                     <td><a href="edit.php?id=<?php echo $ride['id']; ?>">aanpassen</a></td>
                 </tr>
             <?php endforeach; ?>

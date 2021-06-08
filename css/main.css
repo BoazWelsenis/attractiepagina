@@ -177,39 +177,153 @@ th{
     text-align: left;
 }
 
-/* INDEX */
+/* INDEX - ATTRACTIES */
+aside form select, aside form input{
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
 .attracties{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
+  gap: 25px;
 
-  grid-auto-flow: dense;
+  grid-auto-flow: dense; /* Dicht op elkaar de items zetten, volgorde maakt niet uit */
+  margin-bottom: 3rem;
 }
 
 .attractie{
   background-color: #F5FCF8;
   color: #0B351D;
   border-radius: 25px;
+  box-shadow: 3px 4px 13px 0px rgb(0 0 0 / 14%);
+
+  cursor: pointer;
+
+  transition: transform ease-in-out .1s; /* om de animatie weg te laten gaan moet de transition property ook bij het element zelf staan */
+}
+
+/* CSS Animaties */
+.attractie:hover{
+  transition: transform ease-in-out .1s; /* property - transition - duur */
+  transform: scale(1.03);
+}
+
+/* Keep aspect ratio img - https://stackoverflow.com/questions/34713763/force-an-image-to-fit-and-keep-aspect-ratio/34713809 */
+.attractie img{
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.attractie-img{
+  border-radius: 25px 25px 0 0;  /* overflow: hidden; kan ook gebruikt worden */
+}
+
+.large, .large img{
+  grid-column: span 2;
+}
+
+h2{
+  margin: 0;
+  font-family: Oxanium;
 }
 
 .txt-wrapper{
-  /* m0-auto + width inzetten!!! */
+  padding: 0.6rem;
 }
 
-.attractie, .attractie img{
-  max-width: 16rem; /* GROOTTE CARD */ 
+.w50{
+  width: 50%;
 }
 
-.attractie img{
-  border-radius: 25px 25px 0 0;
+.attractie-bottom{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  min-height: calc(100% - 180px); /* Hoogte - aantal pixels plaatje = Oplossing kleur aan de onderkant */
+}
+
+.txt-fastpass{
+  width: 50%;
+  padding: 0.6rem;
+  background-color: white;
+  border-radius: 0 0 25px; /* overflow: hidden; kan ook gebruikt worden */
+  overflow: hidden;
+  border-left: 1px solid lightgrey;
+}
+
+.txt-fastpass p{
+  color: #849D8E;
+  margin-top: 30px;
+  margin-bottom: 0px;
+}
+
+.txt-fastpass button{
+  font-family: Oxanium;
+  background-color: #3ED67D;
+  color: #0B351D;
+
+  padding: 12px 15px;
+  width: 75%;
+  border-radius: 30px;
+  margin-bottom: 0.6rem;
+
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.txt-fastpass img{
+  height: 25px;
+  width: 30px;
 }
 
 .thema, .lengte{
   color: #849D8E;
 }
 
+.thema{
+  font-weight: bold;
+}
 
 
+/* ADMIN/ATTRACTIES/INDEX.PHP */
+tr:nth-child(odd){
+  background-color:#d6ecc8;
+}
+
+tr:nth-child(even){
+  background-color:#ffffffb2;
+}
+
+tr:first-child{
+  background-color: #27ae60;
+  color: white;
+}
+
+tr:hover{
+  background-color:#caedf1;
+}
+
+
+/* MEDIA QUERIES */
+@media(max-width: 1467px){
+  .attracties{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 902px){
+  .attractie{
+    grid-column: span 4;
+  }
+}
+
+@media(max-width: 747px){
+  .container.content{
+    grid-template-columns: 1fr;
+  }
+}
 
 
 /* ==========================================================================
