@@ -325,6 +325,22 @@ tr:hover{
   }
 }
 
+@media(max-width: 746px){
+  .container.header{
+    display: block;
+  }
+  .logo{
+    max-width: 200px;
+  }
+
+  header h1{
+    margin: 0;
+  }
+  aside{
+    margin-bottom: 3rem;
+  }
+}
+
 
 /* ==========================================================================
    Helper classes
