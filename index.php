@@ -18,8 +18,8 @@ require_once 'admin/backend/config.php';
 </head>
 
 <body>
-
     <?php require_once 'header.php'; ?>
+
     <div class="container content">
         <aside>
             <h3>Filters</h3>
@@ -34,6 +34,7 @@ require_once 'admin/backend/config.php';
 
             <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia modi dolore magnam! Iste libero voluptatum autem, sapiente ullam earum nostrum sed magnam vel laboriosam quibusdam, officia, esse vitae dignissimos nulla? -->
         </aside>
+
         <main>
             <!-- hier zou de query kunnen komen -->
             <?php
@@ -64,13 +65,13 @@ require_once 'admin/backend/config.php';
                         <!-- Informatie bj fast-pass -->
                         <?php if($ride['fast_pass']): ?>
                             <div class="txt-fastpass">
-                                <p>Deze attractie is alleen de bezoeken met fastpass</p>
+                                <p>Deze attractie is alleen te <br> bezoeken met een fastpass</p>
 
                                 <p>Boek nu en sla de wachtrij over:</p>
                                 
                                 <button>
                                     <img src="./img/Ticket.png" alt="ticket icon">
-                                    <b>FAST PASS</b>
+                                    FAST PASS
                                 </button>
                             </div>
                         <?php endif; ?>
@@ -80,7 +81,5 @@ require_once 'admin/backend/config.php';
             </div>
         </main>
     </div>
-
 </body>
-
 </html>
