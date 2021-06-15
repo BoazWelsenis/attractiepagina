@@ -200,6 +200,8 @@ aside form select, aside form input{
   cursor: pointer;
 
   transition: transform ease-in-out .1s; /* om de animatie weg te laten gaan moet de transition property ook bij het element zelf staan */
+
+  position: relative;
 }
 
 /* CSS Animaties */
@@ -241,9 +243,17 @@ h2{
   justify-content: space-between;
 
   min-height: calc(100% - 180px); /* Hoogte - aantal pixels plaatje = Oplossing kleur aan de onderkant */
+
+  padding-bottom: 45px;
 }
 
 .txt-fastpass{
+  /* position: relative; */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   width: 50%;
   padding: 0.6rem;
   background-color: white;
@@ -252,6 +262,11 @@ h2{
   border-left: 1px solid #E5E5E5;
 
   text-align: center;
+}
+
+.fastpass-bottom{
+  /* position: absolute;
+  left: 19%; */
 }
 
 .txt-fastpass p{
@@ -269,7 +284,6 @@ h2{
   color: #0B351D;
 
   padding: 12px 15px;
-  width: 75%;
   border-radius: 15px;
 
   border: none;
@@ -288,6 +302,12 @@ h2{
 
 .thema, .lengte{
   color: #849D8E;
+}
+
+.lengte{
+  position: absolute;
+  left: 10px;
+  bottom: 7px;
 }
 
 .thema{

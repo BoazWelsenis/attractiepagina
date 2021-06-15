@@ -58,21 +58,27 @@ require_once 'admin/backend/config.php';
                             <h2><?php echo $ride['title']; ?></h2>
                             <p><?php echo $ride['description']; ?></p>
                             <div class="lengte">
-                                <p><b><?php echo $ride['min_length'] ? $ride['min_length'] . " " . "cm" : "Geen"?></b> minimale lengte</p>
+                                <?php if($ride['min_length'] != null): ?>
+                                <!-- <p><b><?php echo $ride['min_length'] ? $ride['min_length'] . " " . "cm" : "Geen"?></b> minimale lengte</p> -->
+
+                                <p><b><?php echo $ride['min_length']; ?></b> cm minimale lengte</p>
+                                <?php endif; ?>
                             </div>
                         </div>
 
-                        <!-- Informatie bj fast-pass -->
+                        <!-- Informatie bij fast-pass -->
                         <?php if($ride['fast_pass']): ?>
                             <div class="txt-fastpass">
                                 <p>Deze attractie is alleen te <br> bezoeken met een fastpass</p>
 
-                                <p>Boek nu en sla de wachtrij over:</p>
-                                
-                                <button>
-                                    <img src="./img/Ticket.png" alt="ticket icon">
-                                    FAST PASS
-                                </button>
+                                <div class="fastpass-bottom">
+                                    <p>Boek nu en sla de wachtrij over:</p>
+                                    
+                                    <button>
+                                        <img src="./img/Ticket.png" alt="ticket icon">
+                                        FAST PASS
+                                    </button>
+                                </div>
                             </div>
                         <?php endif; ?>
                     </div>
