@@ -335,6 +335,11 @@ tr:hover{
 
 
 /* MEDIA QUERIES */
+
+/* 
+Automatische column systeem van grid kan ook gebruikt worden:
+-  https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns
+*/
 @media only screen and (max-width: 1292px){
   .attracties{
     grid-template-columns: repeat(3, 1fr);
