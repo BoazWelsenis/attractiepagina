@@ -27,6 +27,9 @@ require_once 'admin/backend/config.php';
             <form action="" action="GET">
                 <select name="type">
                     <option value="">- kies een themgebied - </option>
+                    <option value="familyland">Familyland</option>
+                    <option value="adventureland">Adventureland</option>
+                    <option value="waterland">Waterland</option>
                 </select>
 
                 <input type="submit" value="Filters">
