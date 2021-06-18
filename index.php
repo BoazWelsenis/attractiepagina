@@ -90,9 +90,9 @@ require_once 'admin/backend/config.php';
                             <p><?php echo $ride['description']; ?></p>
                             <div class="lengte">
                                 <?php if($ride['min_length'] != null): ?>
-                                <!-- <p><b><?php echo $ride['min_length'] ? $ride['min_length'] . " " . "cm" : "Geen"?></b> minimale lengte</p> -->
+                                    <!-- <p><b><?php echo $ride['min_length'] ? $ride['min_length'] . " " . "cm" : "Geen"?></b> minimale lengte</p> -->
 
-                                <p><b><?php echo $ride['min_length']; ?></b> cm minimale lengte</p>
+                                    <p><b><?php echo $ride['min_length']; ?></b> cm minimale lengte</p>
                                 <?php endif; ?>
                             </div>
                         </div>
