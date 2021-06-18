@@ -24,16 +24,31 @@ require_once 'admin/backend/config.php';
         <aside>
             <h3>Filters</h3>
 
+
+            <?php if(isset($_GET['type'])): ?>
+                <form action="" action="GET">
+                    <select name="type">
+                        <option value="">- kies een type - </option>
+                        <option value="familyland" <?php if($_GET['type'] == 'familyland') echo 'selected="selected"';?>>Familyland</option>
+                        <option value="adventureland"  <?php if($_GET['type'] == 'adventureland') echo 'selected="selected"';?>>Adventureland</option>
+                        <option value="waterland" <?php if($_GET['type'] == 'waterland') echo 'selected="selected"';?>>Waterland</option>
+                    </select>
+
+                    <input type="submit" value="filter">
+                </form>
+
+            <?php else: ?>
             <form action="" action="GET">
                 <select name="type">
-                    <option value="">- kies een themgebied - </option>
+                    <option value="">- kies een type - </option>
                     <option value="familyland">Familyland</option>
                     <option value="adventureland">Adventureland</option>
                     <option value="waterland">Waterland</option>
                 </select>
 
-                <input type="submit" value="Filters">
+                <input type="submit" value="filter">
             </form>
+            <?php endif; ?>
 
             <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia modi dolore magnam! Iste libero voluptatum autem, sapiente ullam earum nostrum sed magnam vel laboriosam quibusdam, officia, esse vitae dignissimos nulla? -->
         </aside>
@@ -42,10 +57,23 @@ require_once 'admin/backend/config.php';
             <!-- hier zou de query kunnen komen -->
             <?php
                 require_once './admin/backend/conn.php';
-                $query = "SELECT * FROM rides";
-                $statement = $conn->prepare($query);
-                $statement->execute();
-                $rides = $statement->fetchAll(PDO::FETCH_ASSOC);
+                if(empty($_GET['type']))
+                {
+                    $query = "SELECT * FROM rides";
+                    $statement = $conn->prepare($query);
+                    $statement->execute();
+                    $rides = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+                }
+                else
+                {
+                    $query = "SELECT * FROM rides WHERE themeland = :themeland";
+                    $statement = $conn->prepare($query);
+                    $statement->execute([
+                        ":themeland" => $_GET['type']
+                    ]);
+                    $rides = $statement->fetchAll(PDO::FETCH_ASSOC);
+                }
             ?>
             
             <!-- hier komen de attractiekaartjes -->
