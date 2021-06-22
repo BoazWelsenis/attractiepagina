@@ -62,8 +62,6 @@ require_once 'admin/backend/config.php';
                     $query = "SELECT * FROM rides";
                     $statement = $conn->prepare($query);
                     $statement->execute();
-                    $rides = $statement->fetchAll(PDO::FETCH_ASSOC);
-
                 }
                 else
                 {
@@ -72,8 +70,8 @@ require_once 'admin/backend/config.php';
                     $statement->execute([
                         ":themeland" => $_GET['type']
                     ]);
-                    $rides = $statement->fetchAll(PDO::FETCH_ASSOC);
                 }
+                $rides = $statement->fetchAll(PDO::FETCH_ASSOC);
             ?>
             
             <!-- hier komen de attractiekaartjes -->
