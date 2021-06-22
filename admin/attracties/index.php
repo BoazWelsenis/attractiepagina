@@ -28,8 +28,6 @@ if(!isset($_SESSION['user_id']))
     <?php require_once '../../header.php'; ?>
     <div class="container">
 
-        <a href="create.php">Nieuwe attractie maken &gt;</a>
-
         <?php
         require_once '../backend/conn.php';
         $query = "SELECT * FROM rides ORDER BY title";
@@ -37,6 +35,9 @@ if(!isset($_SESSION['user_id']))
         $statement->execute();
         $rides = $statement->fetchAll(PDO::FETCH_ASSOC);
         ?>
+
+        <a href="create.php">Nieuwe attractie maken &gt;</a>
+        <p>De lijst bevat: <b><?php echo count($rides); ?></b> attracties</p>
 
         <table>
             <tr>
@@ -49,7 +50,7 @@ if(!isset($_SESSION['user_id']))
             <?php foreach($rides as $ride): ?>
                 <tr>
                     <td><?php echo $ride['title']; ?></td>
-                    <td><?php echo $ride['themeland']; ?></td>
+                    <td><?php echo ucfirst($ride['themeland']); ?></td>
                     <td><?php echo $ride['min_length']; ?></td>
                     <td><?php echo $ride['fast_pass'] ? "Ja" : "Nee"; ?></td> <!-- inline if-statment (als dit... anders dat...) -->
                     <td><a href="edit.php?id=<?php echo $ride['id']; ?>">aanpassen</a></td>
