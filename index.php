@@ -46,7 +46,7 @@ require_once 'admin/backend/config.php';
                     <option value="waterland">Waterland</option>
                 </select>
 
-                <input type="submit" value="filter">
+                <input type="submit" value="Filter">
             </form>
             <?php endif; ?>
 
