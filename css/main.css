@@ -182,6 +182,9 @@ aside form select, aside form input{
   width: 100%;
   margin-bottom: 0.5rem;
 }
+aside form select{
+  outline: none;
+}
 .attracties{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
